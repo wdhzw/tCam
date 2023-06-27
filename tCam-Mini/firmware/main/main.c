@@ -32,8 +32,14 @@
 #include "rsp_task.h"
 #include "system_config.h"
 #include "sys_utilities.h"
+#include "tflite_task.h" 
 
+#define TFLITE_TASK_STACK_SIZE (1024 * 6)
+#define TFLITE_TASK_PRIORITY 2  // Choose a suitable priority
 
+// Allocate memory for TensorFlow Lite task
+StaticTask_t tflite_task_tcb;
+StackType_t *tflite_task_stack;
 
 static const char* TAG = "main";
 

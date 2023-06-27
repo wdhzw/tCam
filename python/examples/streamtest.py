@@ -9,7 +9,7 @@ author: bitreaper
 import base64
 import argparse
 import numpy as np
-from tcam import TCam
+from examples.tcam import TCam
 from tkinter import *
 from array import array
 from PIL import Image, ImageTk

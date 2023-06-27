@@ -11,7 +11,7 @@ original author: bitreaper (hacked to use the hw interface by Dan Julio)
 import base64
 import argparse
 import numpy as np
-from tcam import TCam
+from examples.tcam import TCam
 from palettes import rainbow_palette
 from tkinter import *
 from array import array

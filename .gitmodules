@@ -1,0 +1,6 @@
+[submodule "tCam-Mini/firmware/components/tflite-lib/tensorflow/lite"]
+	path = tCam-Mini/firmware/components/tflite-lib/tensorflow/lite
+	url = https://github.com/tensorflow/tflite-micro
+[submodule "tCam-Mini/firmware/components/tflite-lib/third_party"]
+	path = tCam-Mini/firmware/components/tflite-lib/third_party
+	url = https://github.com/tensorflow/tflite-micro

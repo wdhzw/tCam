@@ -1,1 +1,1 @@
-from .tcam import TCam
+from .examples.tcam import TCam

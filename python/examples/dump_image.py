@@ -5,7 +5,7 @@ from palettes import ironblack_palette
 from PIL import Image as im
 import numpy as np
 import argparse
-from tcam import TCam
+from examples.tcam import TCam
 import sys
 
 parser = argparse.ArgumentParser()

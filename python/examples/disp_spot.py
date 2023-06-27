@@ -6,7 +6,7 @@
 import argparse
 import array
 import base64
-from tcam import TCam
+from examples.tcam import TCam
 import sys
 
 parser = argparse.ArgumentParser()
