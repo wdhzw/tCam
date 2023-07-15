@@ -83,7 +83,6 @@ typedef struct {
 #define Notification(var, mask) ((var & mask) == mask)
 
 
-
 //
 // Task handle externs for use by tasks to communicate with each other
 //
@@ -91,6 +90,7 @@ extern TaskHandle_t task_handle_cmd;
 extern TaskHandle_t task_handle_ctrl;
 extern TaskHandle_t task_handle_lep;
 extern TaskHandle_t task_handle_rsp;
+extern TaskHandle_t task_handle_tflite;
 #ifdef INCLUDE_SYS_MON
 extern TaskHandle_t task_handle_mon;
 #endif

@@ -46,9 +46,9 @@ static esp_netif_t *wifi_netif;
 
 // Wifi information
 static char wifi_ap_ssid_array[PS_SSID_MAX_LEN+1];
-static char wifi_sta_ssid_array[PS_SSID_MAX_LEN+1];
+static char wifi_sta_ssid_array[PS_SSID_MAX_LEN+1] = SSID;
 static char wifi_ap_pw_array[PS_PW_MAX_LEN+1];
-static char wifi_sta_pw_array[PS_PW_MAX_LEN+1];
+static char wifi_sta_pw_array[PS_PW_MAX_LEN+1] = PASSWORD;
 static net_info_t wifi_info = {
 	wifi_ap_ssid_array,
 	wifi_sta_ssid_array,
@@ -141,15 +141,20 @@ bool wifi_init()
 	}
 	
 	// Get our wifi info
+	ESP_LOGI(TAG, "SSID: %s, Password: %s", wifi_info.sta_ssid, wifi_info.sta_pw);
 	ps_get_net_info(&wifi_info);
+	strcpy(wifi_info.sta_ssid, SSID);
+	strcpy(wifi_info.sta_pw, PASSWORD);
+	ESP_LOGI(TAG, "SSID: %s, Password: %s", wifi_info.sta_ssid, wifi_info.sta_pw);
+
 	
 	// Initialize the WiFi interface
 	if (init_esp_wifi()) {
 		wifi_info.flags |= NET_INFO_FLAG_INITIALIZED;
 		ESP_LOGI(TAG, "WiFi initialized");
-		
 		// Configure the WiFi interface if enabled
 		if ((wifi_info.flags & NET_INFO_FLAG_STARTUP_ENABLE) != 0) {
+			wifi_info.flags |= NET_INFO_FLAG_CLIENT_MODE;  // to set wifi mode as default
 			if ((wifi_info.flags & NET_INFO_FLAG_CLIENT_MODE) != 0) {
 				if (enable_esp_wifi_client()) {
 					wifi_info.flags |= NET_INFO_FLAG_ENABLED;
@@ -208,6 +213,11 @@ bool wifi_reinit()
 	
 	// Update the wifi info because we're called when it's updated
 	ps_get_net_info(&wifi_info);
+	strcpy(wifi_info.sta_ssid, SSID);
+	strcpy(wifi_info.sta_pw, PASSWORD);
+	ESP_LOGI(TAG, "SSID: %s, Password: %s", wifi_info.sta_ssid, wifi_info.sta_pw);
+
+
 	wifi_info.flags |= NET_INFO_FLAG_INITIALIZED;   // Add in the fact we're already initialized
 	
 	// Reconfigure the interface if enabled

@@ -144,9 +144,11 @@ void lep_task()
 #endif
 					if (rsp_buf_index == 0) {
 						xTaskNotify(task_handle_rsp, RSP_NOTIFY_LEP_FRAME_MASK_0, eSetBits);
+						xTaskNotify(task_handle_tflite, RSP_NOTIFY_LEP_FRAME_MASK_0, eSetBits);
 						rsp_buf_index = 1;
 					} else {
 						xTaskNotify(task_handle_rsp, RSP_NOTIFY_LEP_FRAME_MASK_1, eSetBits);
+						xTaskNotify(task_handle_tflite, RSP_NOTIFY_LEP_FRAME_MASK_1, eSetBits);
 						rsp_buf_index = 0;
 					}
 					

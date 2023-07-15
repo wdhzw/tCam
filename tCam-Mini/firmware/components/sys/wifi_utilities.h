@@ -27,13 +27,14 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "net_utilities.h"
-
 //
 // WiFi Utilities Constants
 //
 
 // Maximum attempts to reconnect to an AP in client mode before starting to wait
 #define WIFI_FAST_RECONNECT_ATTEMPTS  10
+#define SSID "SINGTEL-49B7_2.4G"
+#define PASSWORD "tietheibai"
 
 
 //

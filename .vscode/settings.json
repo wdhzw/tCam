@@ -1,0 +1,14 @@
+{
+    "cmake.sourceDirectory": "C:/Users/wdhzw/Desktop/tCam/tCam/tCam-Mini/firmware",
+    "files.associations": {
+        "freertos.h": "c",
+        "esp_log.h": "c",
+        "task.h": "c",
+        "ps_utilities.h": "c",
+        "micro_mutable_op_resolver.h": "c",
+        "cstring": "c",
+        "*.inc": "c"
+    },
+    "idf.espIdfPathWin": "C:\\Espressif\\frameworks\\esp-idf-v4.4.2",
+    "idf.toolsPathWin": "C:\\Espressif"
+}

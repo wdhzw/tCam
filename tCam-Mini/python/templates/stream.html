@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-time Image Display</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #image {
+            width: 480px;
+            height: 360px;
+        }
+        #confidence, #result {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-time Image Display</h1>
+    <img id="image" src="" alt="Image will display here">
+    <p id="result">Result: </p>
+    <p id="confidence">Confidence: </p>
+
+    <script>
+        function updateImage() {
+            // send a POST request to the Flask server
+            $.ajax({
+                url: 'http://192.168.1.111:5000/postdata',
+                method: 'POST',
+                data: JSON.stringify({/* your data here */}),
+                contentType: 'application/json',
+                success: function(data) {
+                    // if the server responds successfully, update the image and text
+                    $('#image').attr('src', 'data:image/png;base64,' + data.image_data);
+                    $('#result').text('Result: ' + data.result);
+                    $('#confidence').text('Confidence: ' + data.confidence);
+                }
+            });
+
+            // update the image again in one second
+            setTimeout(updateImage, 500);
+        }
+
+        // update the image as soon as the page is loaded
+        updateImage();
+    </script>
+</body>
+</html>

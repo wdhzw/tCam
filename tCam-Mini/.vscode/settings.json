@@ -1,0 +1,4 @@
+{
+    "cmake.sourceDirectory": "C:/Users/wdhzw/Desktop/tCam/tCam/tCam-Mini/firmware",
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}\\firmware\\build\\bootloader\\compile_commands.json"
+}
